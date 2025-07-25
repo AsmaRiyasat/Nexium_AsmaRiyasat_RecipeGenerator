@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useEffect } from 'react';
@@ -17,7 +16,7 @@ export default function AuthCallback() {
 
       if (sessionData.session) {
         console.log('✅ Session restored:', sessionData.session);
-        router.push('/dashboard');
+        router.push('/recipe');
       } else {
         console.warn('❌ No session found.');
         router.push('/login');

@@ -1,4 +1,4 @@
-// // app/login/page.tsx
+
 "use client";
 
 import { useState } from "react";
@@ -17,7 +17,7 @@ export default function MagicLogin() {
     const { error } = await supabase.auth.signInWithOtp({
       email,
       options: {
-        emailRedirectTo: `${location.origin}/auth/callback`, // adjust path if needed
+        emailRedirectTo: `${location.origin}/auth/callback`,
       },
     });
 
@@ -30,21 +30,19 @@ export default function MagicLogin() {
   };
 
   return (
-    <div className="min-h-screen bg-[url('/powder-7976081_1280.jpg')] bg-cover bg-center flex items-center justify-center relative">
-      <div className="absolute top-4 left-4 text-white font-bold text-2xl">Recipe Generator AI</div>
-
-      <Card className="w-full max-w-sm bg-white/10 backdrop-blur-md shadow-lg border-none text-white">
-        <CardContent className="p-6">
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-2xl font-bold">Login</h2>
+    <div className="min-h-screen flex items-center justify-center px-4">
+      <Card className="w-full max-w-xl bg-white/10 backdrop-blur-lg border border-white/30 shadow-2xl rounded-2xl">
+        <CardContent className="p-10 text-white">
+          <div className="flex justify-between items-center mb-8">
+            <h2 className="text-4xl font-bold">Login</h2>
             <Button variant="ghost" size="icon" className="text-white hover:bg-white/20">
-              <XIcon />
+              <XIcon className="w-5 h-5" />
             </Button>
           </div>
-          <div className="space-y-4">
+          <div className="space-y-6">
             <div>
-              <Label htmlFor="email" className="flex items-center gap-2">
-                Email <MailIcon className="w-4 h-4" />
+              <Label htmlFor="email" className="flex items-center gap-2 text-white text-base">
+                Email <MailIcon className="w-5 h-5" />
               </Label>
               <Input
                 id="email"
@@ -52,11 +50,11 @@ export default function MagicLogin() {
                 placeholder="you@example.com"
                 value={email}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
-                className="mt-1 bg-white/20 border-white/30 text-white placeholder-white/70"
+                className="mt-2 bg-white/20 border border-white/30 text-white placeholder-white/70"
               />
             </div>
             <Button
-              className="w-full bg-white/20 hover:bg-white/30 text-white font-semibold"
+              className="w-full bg-white/20 hover:bg-white/30 text-white font-semibold py-2 text-base"
               onClick={handleLogin}
             >
               Send Magic Link
