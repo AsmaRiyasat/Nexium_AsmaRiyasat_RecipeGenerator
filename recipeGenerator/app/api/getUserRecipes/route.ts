@@ -1,7 +1,8 @@
 // app/api/getUserRecipes/route.ts
 
 import { NextRequest, NextResponse } from "next/server";
-import { getUserRecipes } from "@/lib/mongo";
+import { getUserRecipes } from "@/lib/actions/getUserRecipes";
+
 
 export async function POST(req: NextRequest) {
   try {
